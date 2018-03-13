@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             }}else if userGuesses == 1 {
             userFeedbackLabel.text = """
             The correct answer is \(randomNumber).
-            Guess to play again :)
+            Click the "play again" button to play again :)
             """
         }else if Int(userGuessField.text!)! > randomNumber {
             userGuesses -= 1
@@ -64,4 +64,10 @@ class ViewController: UIViewController {
         }
 
 }
+    @IBAction func playAgainButtonPressed(_ sender: Any) {
+    userGuesses = 5
+    randomNumber = Int(arc4random_uniform(100))
+    userFeedbackLabel.text = "Guess!"
+    }
+    
 }
