@@ -54,20 +54,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKj-Cb-19V">
-                                <rect key="frame" x="260" y="295" width="51" height="30"/>
+                                <rect key="frame" x="260" y="295" width="80" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Guess!"/>
                                 <connections>
                                     <action selector="guessButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lRp-nE-73Y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGm-i3-exr">
-                                <rect key="frame" x="122" y="748" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play Again!"/>
-                                <connections>
-                                    <action selector="playAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ppQ-3I-ahR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,6 +69,7 @@
                     <connections>
                         <outlet property="rulesLabel" destination="dX0-Rd-ADt" id="rfM-Qh-oot"/>
                         <outlet property="userFeedbackLabel" destination="3IL-ec-Oyl" id="2zt-sS-YK6"/>
+                        <outlet property="userGuessButton" destination="aKj-Cb-19V" id="jya-YI-HJ9"/>
                         <outlet property="userGuessField" destination="eig-hU-z2u" id="Urt-cD-z51"/>
                     </connections>
                 </viewController>

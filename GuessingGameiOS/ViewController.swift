@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var userGuessField: UITextField!
     @IBOutlet weak var userFeedbackLabel: UILabel!
     
+    @IBOutlet weak var userGuessButton: UIButton!
     @IBOutlet weak var rulesLabel: UILabel!
 
     var randomNumber = Int(arc4random_uniform(100))
@@ -36,17 +37,25 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
 
     }
+    
     @IBAction func guessButtonPressed(_ sender: Any) {
-        if Int(userGuessField.text!)! == randomNumber {
+        if userGuessButton.titleLabel?.text! == "Play again!"{
+            userGuesses = 5
+            randomNumber = Int(arc4random_uniform(100))
+            userGuessButton.setTitle("Guess!", for: .normal)
+            userFeedbackLabel.text = ""
+        }else if Int(userGuessField.text!)! == randomNumber {
             userFeedbackLabel.text = guessRight
             self.view.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            }}else if userGuesses == 1 {
+                self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)  }
+        userGuessButton.setTitle("Play again!", for: .normal)
+            }else if userGuesses == 1 {
             userFeedbackLabel.text = """
             The correct answer is \(randomNumber).
-            Click the "play again" button to play again :)
             """
+            userGuessButton.setTitle("Play again!", for: .normal)
+    
         }else if Int(userGuessField.text!)! > randomNumber {
             userGuesses -= 1
             userFeedbackLabel.text = "\(guessTooHigh) You have \(userGuesses) remaining"
@@ -64,10 +73,5 @@ class ViewController: UIViewController {
         }
 
 }
-    @IBAction func playAgainButtonPressed(_ sender: Any) {
-    userGuesses = 5
-    randomNumber = Int(arc4random_uniform(100))
-    userFeedbackLabel.text = "Guess!"
-    }
     
 }
