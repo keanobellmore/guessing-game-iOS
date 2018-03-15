@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func guessButtonPressed(_ sender: Any) {
+        print(randomNumber)
         if let guess = Int(userGuessField.text!) {
          if userGuessButton.titleLabel?.text! == "Play again!"{
             userGuesses = 5
@@ -43,8 +44,9 @@ class ViewController: UIViewController {
             userFeedbackLabel.text = ""
         }else if guess == randomNumber {
             userFeedbackLabel.text = guessRight
+            view.endEditing(true)
             self.view.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
-            self.imageLabel.image = #imageLiteral(resourceName: "Image-1")
+            self.imageLabel.image = #imageLiteral(resourceName: "Image")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 self.imageLabel.image = #imageLiteral(resourceName: "Image-2")
